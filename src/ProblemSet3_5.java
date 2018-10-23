@@ -124,6 +124,7 @@ public class ProblemSet3_5 {
 	 * @param number
 	 */
 	
+	//Something is wrong with this one VV
 	public void palindromicNumbers(int number) {
 		String num = "" + number;
 		for (int i = 0; i < num.length(); i++) {
