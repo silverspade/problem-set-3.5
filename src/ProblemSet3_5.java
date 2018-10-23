@@ -18,10 +18,9 @@ public class ProblemSet3_5 {
 	
 	public static void main(String[] args) {
 		ProblemSet3_5 ps = new ProblemSet3_5();
-		
-		// test your solutions here
-		
 		ps.primes(1, 1000);
+		ps.leapYears(5);
+		ps.palindromicNumbers(23);
 	}
 	
 	/**
@@ -36,7 +35,57 @@ public class ProblemSet3_5 {
 	 */
 	
 	public void primes(int start, int end) {
-		
+		if (start < 0) {
+			System.out.println("Please enter a new starting value greater than 1");
+		}
+		if (end > Integer.MAX_VALUE) {
+			System.out.println("Please enter a new ending value less than " + Integer.MAX_VALUE);
+		}
+		int count = 0;
+		for (int i = 0; i <= end; i++) {
+			if (isPrime(start + i) && ((start + i) < end)) {
+				count++;
+			}
+		}
+		System.out.println("There is " + count + " prime numbers.");
+	}
+	
+	public boolean isPrime(int n) {
+		if (n == 1) {
+			return false;
+		} else if (n % 2 == 0 && n != 2) {
+			return false;
+		} else if (n % 3 == 0 && n != 3) {
+			return false;
+		} else if (n % 5 == 0 && n != 5) {
+			return false;
+		} else if (n % 7 == 0 && n != 7) {
+			return false;
+		} else if (n % 11 == 0 && n != 11) {
+			return false;
+		} else if (n % 13 == 0  && n != 13) {
+			return false;
+		} else if (n % 17 == 0 && n != 17) {
+			return false;
+		} else if (n % 19 == 0 && n != 19) {
+			return false;
+		} else if (n % 23 == 0 && n != 23) {
+			return false;
+		} else if (n % 29 == 0 && n != 29) {
+			return false;
+		} else if (n % 31 == 0 && n != 31) {
+			return false;
+		} else if (n % 37 == 0 && n != 37) {
+			return false;
+		} else if (n % 41 == 0 && n != 41) {
+			return false;
+		} else if (n % 43 == 0 && n != 43) {
+			return false;
+		} else if (n % 47 == 0 && n != 47) {
+			return false;
+		} else {
+			return true;
+		}
 	}
 	
 	/**
@@ -50,7 +99,20 @@ public class ProblemSet3_5 {
 	 */
 	
 	public void leapYears(int count) {
-		
+		int newLeapYear = 2020;
+		if (count == 1) {
+			System.out.println("The next leap year is 2020");
+		} else if (count == 2) {
+			System.out.println("The next leap year is 2020 and 2024");
+		} else {
+			System.out.print("The next " + count + " leap years are " + newLeapYear + ", ");
+			for (int i = 2; i < count; i++) {
+				newLeapYear += 4;
+				System.out.print(newLeapYear + ", ");
+			}
+			newLeapYear += 4;
+			System.out.print("and " + newLeapYear + ".\n");
+		}
 	}
 	
 	/**
@@ -63,7 +125,12 @@ public class ProblemSet3_5 {
 	 */
 	
 	public void palindromicNumbers(int number) {
-		
+		String num = "" + number;
+		for (int i = 0; i < num.length(); i++) {
+			if (num.charAt(i) != num.charAt(num.length() - i)) {
+				System.out.println(num + " is not a palindromic number.");
+			}
+		}
 	}
 	
 	/**
