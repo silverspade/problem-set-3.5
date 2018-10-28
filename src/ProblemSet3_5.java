@@ -18,9 +18,11 @@ public class ProblemSet3_5 {
 	
 	public static void main(String[] args) {
 		ProblemSet3_5 ps = new ProblemSet3_5();
-		//ps.primes(1,100);
-		//ps.leapYears(3);
+		ps.primes(1,100);
+		ps.leapYears(3);
 		ps.palindromicNumbers(232);
+		ps.fibonacci(3);
+		ps.multiples(2,4,10);
 	}
 	
 	/**
@@ -136,7 +138,27 @@ public class ProblemSet3_5 {
 	 */
 	
 	public void fibonacci(int n) {
-		
+		if (n < 0) {
+			System.out.println("Please enter a positive integer.");
+		} else {
+			long a = 1;
+			long b = 1;
+			long sum = 1;
+			for (int i = 2; i < n; i++) {
+				sum = a + b;
+				a = b;
+				b = sum;
+			}
+			if ((n % 10) == 1) {
+				System.out.println("The " + n + "st Fibonacci number is " + sum + ".");
+			} else if ((n % 10) == 2) {
+				System.out.println("The " + n + "nd Fibonacci number is " + sum + ".");
+			} else if ((n % 10) == 3) {
+				System.out.println("The " + n + "rd Fibonacci number is " + sum + ".");
+			} else {
+				System.out.println("The " + n + "th Fibonacci number is " + sum + ".");
+			}
+		}
 	}
 	
 	/**
@@ -149,6 +171,16 @@ public class ProblemSet3_5 {
 	 */
 	
 	public void multiples(int x, int y, int limit) {
-		
+		long sum = 0;
+		if (x < 0 || y < 0 || limit < 0) {
+			System.out.println("Please enter all positive integers");
+		} else {
+			for (int i = 1; i < limit; i++) {
+				if (i % x == 0 || i % y == 0) {
+					sum += i;
+				}
+			}
+			System.out.println("The sum of all multiples of " + x + " and " + y + " less than " + limit + " is " + sum + ".");
+		}
 	}
 }
